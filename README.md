@@ -1,12 +1,10 @@
-# Micah's Notes on Governing Cardano
+# Micah's Notes on Cardano Governance
 
 I read the [cardano ledger specification](https://intersectmbo.github.io/formal-ledger-specifications/pdfs/cardano-ledger.pdf). This covers the technical functionality of governance. The governance system is a multi-stage process, with a constitutional committee, delegated representatives, and stake pool operators all having a say in the future of the Cardano protocol.
 
 ## Protocol:
 The version is two natural numbers: N x N
 The treasury & reserves are both ada amounts that are part of the core protocol.
-
-They are currently at 
 
 Parameters are core settings of the entire Cardano protocol, these may be adjusted by proposals.
 
@@ -40,8 +38,8 @@ These influence the economic incentives of the Cardano system. Largely these min
 5. MinFeeRefScriptCoinsPerByte, the cost per byte of serialised flat-encoded referenced scripts paid in a transaction. When you reference a script in a transaction, you are essentially retrieving deep storage and into active memory, this costs you for that.
 6. Prices, fractional numbers indicating how much lovelace should be charged for memory and steps execution units. This is a simple 2 element array.
 ### Technical Group
-1. a0, "PoolPledgeInfluence", TODO
-2. Emax, "RetireMaxEpoch", TODO
+1. a0, "PoolPledgeInfluence"
+2. Emax, "RetireMaxEpoch"
 3. nopt, "k", "PoolTargetNum", the target number of stake pools.
 4. collateralPercentage, to indicate how much more collateral than fee must be paid in the event of transaction invalidity. This disincentivises abuse of the plutus machine evaluator, one of the most expensive parts of the ledger.
 5. costMdls, "Cost Models", this is a complex set of pricing models for the execution of scripts. Whenever scripts are added to the ledger, they are executed by the ledger, and this costs computational resources. Different builtins are costed due to their resource usage. These aren't priced in lovelace, these step values are summed for each redeemer and used alongside the "Prices" parameter.
